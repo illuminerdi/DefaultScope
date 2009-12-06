@@ -1,7 +1,7 @@
 <cfcomponent output="false">
   <cffunction name="init">
     <cfscript>
-      this.version = "0.1";
+      this.version = "1.0";
       this.VALID_ARGUMENTS = listToArray( "where,order,select,distinct,include,maxRows,page,perPage,count,handle,cache,reload,parameterize,returnAs,returnIncluded");
       return this;
     </cfscript>
