@@ -12,7 +12,7 @@
     </cfscript>
   </cffunction>
 
-  <cffunction name="findAll" access="public">
+  <cffunction name="findAll" access="public" mixin="model">
     <cfscript>
       loc = {};
       loc.validArguments = $validArguments();
