@@ -22,13 +22,13 @@ Problems:
 
 == SYNOPSIS:
 
-&lt;!--- in any model ---&gt;
-&lt;cffunction name="init"&gt;
-  &lt;!--- assume we have a model containing user information, and
+<!--- in any model --->
+<cffunction name="init">
+  <!--- assume we have a model containing user information, and
     you want to sort by the last name then first for most of your
-    findAll() requests.  ---&gt;
-  &lt;cfset defaultScope(order="last_name, first_name") /&gt;
-&lt;/cffunction&gt;
+    findAll() requests.  --->
+  <cfset defaultScope(order="last_name, first_name") />
+</cffunction>
 
 == REQUIREMENTS:
 
