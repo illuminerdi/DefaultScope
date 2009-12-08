@@ -53,6 +53,11 @@
 <h2>Release History</h2>
 
 <ul>
+  <li>2009-12-08 -- 0.6
+    <ul>
+      <li>reduced loop overhead and simplified code (andybellenie)</li>
+    </ul>
+  </li>
   <li>2009-12-07 -- 0.5
     <ul>
       <li>initial public release</li>
