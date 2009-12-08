@@ -14,7 +14,7 @@
 	var findAllOriginal = core.findAll; // this is to avoid a bug in CF8 where a method called as part of a struct will throw an error when passed an argument collection.
 	var key = "";
 	// loop over the default arguments
-	if (StructKeyExists(variables.wheels.class,"defaultScope") {
+	if (StructKeyExists(variables.wheels.class,"defaultScope")) {
 		for(key in variables.wheels.class.defaultScope) {
 			// if not present in the arguments, copy the default value
 			if (not StructKeyExists(arguments,key) and $IsValidFindAllArgument(key)) {
