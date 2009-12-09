@@ -56,6 +56,7 @@
 	<li>2009-12-09 -- 0.6.1
 		<ul>
 			<li>code cleanup</li>
+			<li>slight change to how the methods determine valid arguments for <code>findAll()</code> and <code>defaultScope()</code></li>
 		</ul>
 	</li>
 	<li>2009-12-08 -- 0.6
