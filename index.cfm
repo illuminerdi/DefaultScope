@@ -18,13 +18,13 @@
 </p>
 
 <pre>
-	&lt;!--- in any model ---&gt;
-	&lt;cffunction name="init"&gt;
-		&lt;!--- assume we have a model containing user information, and
+&lt;!--- in any model ---&gt;
+&lt;cffunction name="init"&gt;
+	&lt;!--- assume we have a model containing user information, and
 		you want to sort by the last name then first for most of your
 		findAll() requests.  ---&gt;
-		&lt;cfset defaultScope(order="lastName, firstName") /&gt;
-	&lt;/cffunction&gt;
+	&lt;cfset defaultScope(order="lastName, firstName") /&gt;
+&lt;/cffunction&gt;
 </pre>
 
 <h2>Overridden Methods</h2>
