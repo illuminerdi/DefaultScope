@@ -3,7 +3,7 @@
 
 	<cffunction name="init">
 		<cfscript>
-			this.version = "1.0";
+			this.version = "1.0,1.1";
 			return this;
 		</cfscript>
 	</cffunction>
@@ -52,35 +52,35 @@
 	
 	<!--- adding default ordering will break column statistics, so force remove it in the following overrides --->
 	
-	<cffunction name="count" access="plugin" mixing="model">
+	<cffunction name="count" access="public" mixing="model">
 		<cfset var coreMethod = core.count>
 		<cfset arguments.order = "">
 		<cfreturn coreMethod(argumentCollection=arguments)>
 	</cffunction>
 	
 	
-	<cffunction name="average" access="plugin" mixing="model">
+	<cffunction name="average" access="public" mixing="model">
 		<cfset var coreMethod = core.average>
 		<cfset arguments.order = "">
 		<cfreturn coreMethod(argumentCollection=arguments)>
 	</cffunction>
 	
 	
-	<cffunction name="minimum" access="plugin" mixing="model">
+	<cffunction name="minimum" access="public" mixing="model">
 		<cfset var coreMethod = core.minimum>
 		<cfset arguments.order = "">
 		<cfreturn coreMethod(argumentCollection=arguments)>
 	</cffunction>
 	
 	
-	<cffunction name="maximum" access="plugin" mixing="model">
+	<cffunction name="maximum" access="public" mixing="model">
 		<cfset var coreMethod = core.maximum>
 		<cfset arguments.order = "">
 		<cfreturn coreMethod(argumentCollection=arguments)>
 	</cffunction>
 	
 	
-	<cffunction name="sum" access="plugin" mixing="model">
+	<cffunction name="sum" access="public" mixing="model">
 		<cfset var coreMethod = core.sum>
 		<cfset arguments.order = "">
 		<cfreturn coreMethod(argumentCollection=arguments)>
