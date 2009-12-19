@@ -88,6 +88,7 @@
 	<li>If for some reason you decide to use ordered arguments rather than named arguments, then it won't work. The new <code>findAll()</code> expects named arguments only.</li>
 	<li>The plugin could do with some testing and better documentation. Also, it would probably be good to steer away from my ... unorthodox method of defining arguments for methods.</li>
 	<li>There's no consideration for environment at this time. It might be a good idea to cache the values from <code>defaultScope()</code> if you're in production mode. I need to learn how to do that.</li>
+	<li><code>findAll()</code> is used by the calculations methods (count, sum, average, etc.), which due to the SQL methods they use can't take an 'order' parameter. These methods are not making sure this parameter isn't being passed to <code>findAll()</code>, so this plugin now strips out the 'order' parameter before the calculations methods run. (Thanks, andybellenie, and you can see his path request for CFWheels to fix this at <a href="http://code.google.com/p/cfwheels/issues/detail?id=366">http://code.google.com/p/cfwheels/issues/detail?id=366</a>)</li>
 </ul>
 
 <h2>License</h2>
