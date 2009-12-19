@@ -2,7 +2,7 @@
 
 	<cffunction name="init">
 		<cfscript>
-			this.version = "1.0";
+			this.version = "1.0,1.1";
 			return this;
 		</cfscript>
 	</cffunction>
@@ -24,6 +24,7 @@
 		</cfscript>
 	</cffunction>
 
+
 	<cffunction name="defaultScope" access="public" mixin="model">
 		<cfscript>
 			var key = "";
@@ -37,11 +38,50 @@
 		</cfscript>
 	</cffunction>
 
+
 	<cffunction name="$IsValidFindAllArgument">
 		<cfargument name="scopeName" type="string" required="true">
 		<cfscript>
 			return ( ListFindNoCase("where,order,select,distinct,include,maxRows,page,perPage,count,handle,cache,reload,parameterize,returnAs,returnIncluded",arguments.scopeName) gt 0);
 		</cfscript>
+	</cffunction>
+
+
+
+	<!--- adding default ordering will break column statistics, so force remove it in the following overrides --->
+
+	<cffunction name="count" access="public" mixing="model">
+		<cfset var coreMethod = core.count>
+		<cfset arguments.order = "">
+		<cfreturn coreMethod(argumentCollection=arguments)>
+	</cffunction>
+
+
+	<cffunction name="average" access="public" mixing="model">
+		<cfset var coreMethod = core.average>
+		<cfset arguments.order = "">
+		<cfreturn coreMethod(argumentCollection=arguments)>
+	</cffunction>
+
+
+	<cffunction name="minimum" access="public" mixing="model">
+		<cfset var coreMethod = core.minimum>
+		<cfset arguments.order = "">
+		<cfreturn coreMethod(argumentCollection=arguments)>
+	</cffunction>
+
+
+	<cffunction name="maximum" access="public" mixing="model">
+		<cfset var coreMethod = core.maximum>
+		<cfset arguments.order = "">
+		<cfreturn coreMethod(argumentCollection=arguments)>
+	</cffunction>
+
+
+	<cffunction name="sum" access="public" mixing="model">
+		<cfset var coreMethod = core.sum>
+		<cfset arguments.order = "">
+		<cfreturn coreMethod(argumentCollection=arguments)>
 	</cffunction>
 
 </cfcomponent>
