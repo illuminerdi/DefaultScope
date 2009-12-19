@@ -53,6 +53,11 @@
 <h2>Release History</h2>
 
 <ul>
+	<li>2009-12-19 -- 0.6.2
+		<ul>
+			<li>fix for DefaultScope causing issues with the calculations methods (andybellenie)</li>
+		</ul>
+	</li>
 	<li>2009-12-09 -- 0.6.1
 		<ul>
 			<li>code cleanup</li>

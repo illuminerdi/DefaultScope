@@ -1,8 +1,8 @@
 = DefaultScope
 
-* http://illuminerdi.com
+* http://cfwheels.org/plugins/listing/23
 * http://cfwheels.org
-* [placeholder for the listing page in cfwheels.org for this plugin]
+* http://illuminerdi.com
 
 == DESCRIPTION:
 
@@ -19,6 +19,7 @@ Problems:
 * If for some reason you decide to use ordered arguments rather than named arguments, then it won't work. The new findAll() expects named arguments only.
 * The plugin could do with some testing and better documentation. Also, it would probably be good to steer away from my ... unorthodox method of defining arguments for methods.
 * There's no consideration for environment at this time. It might be a good idea to cache the values from defaultScope() if you're in production mode. I need to learn how to do that.
+* findAll() is used by the calculations methods (count, sum, average, etc.), which due to the SQL methods they use can't take an 'order' parameter. These methods are not making sure this parameter isn't being passed to findAll(), so this plugin now strips out the 'order' parameter before the calculations methods run. (Thanks, andybellenie, and you can see his path request for CFWheels to fix this at http://code.google.com/p/cfwheels/issues/detail?id=366)
 
 == SYNOPSIS:
 
