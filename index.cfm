@@ -53,6 +53,12 @@
 <h2>Release History</h2>
 
 <ul>
+	<li>2010-04-05 -- 0.6.3
+		<ul>
+			<li>Compatibility update, through CFWheels 1.0.3</li>
+			<li>Fixing typo in column statistics methods</li>
+		</ul>
+	</li>
 	<li>2009-12-19 -- 0.6.2
 		<ul>
 			<li>fix for DefaultScope causing issues with the calculations methods (andybellenie)</li>

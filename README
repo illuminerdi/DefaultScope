@@ -34,17 +34,17 @@ Problems:
 == REQUIREMENTS:
 
 * ColdFusion 8+
-* CFWheels 1.0
+* CFWheels 1.0+
 
 == INSTALL:
 
-* download DefaultScope-0.6.2.zip from the plugin listing above and place it in /plugins and then Reload the framework
+* download DefaultScope-0.6.3.zip from the plugin listing above and place it in /plugins and then Reload the framework
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 Joshua Clingenpeel
+Copyright (c) 2010 Joshua Clingenpeel
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
