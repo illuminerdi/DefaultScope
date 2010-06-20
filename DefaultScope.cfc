@@ -2,7 +2,7 @@
 
 	<cffunction name="init">
 		<cfscript>
-			this.version = "1.0.3,1.0.2,1.0.1,1.0,1.1";
+			this.version = "1.0.5,1.0.4,1.0.3,1.0.2,1.0.1,1.0,1.1";
 			return this;
 		</cfscript>
 	</cffunction>
@@ -11,12 +11,23 @@
 		<cfscript>
 			var findAllOriginal = core.findAll; // this is to avoid a bug in CF8 where a method called as part of a struct will throw an error when passed an argument collection.
 			var key = "";
+			if(not structKeyExists(arguments, "exclusive")) arguments.exclusive = false;
 			// loop over the default arguments
-			if (StructKeyExists(variables.wheels.class,"defaultScope")) {
+			if (StructKeyExists(variables.wheels.class,"defaultScope") and not arguments.exclusive) {
 				for(key in variables.wheels.class.defaultScope) {
 					// if not present in the arguments, copy the default value
-					if (not StructKeyExists(arguments,key) and $IsValidFindAllArgument(key)) {
-						arguments[key] = variables.wheels.class.defaultScope[key];
+					if($IsValidFindAllArgument(key)) {
+						if (not StructKeyExists(arguments,key)) {
+							arguments[key] = variables.wheels.class.defaultScope[key];
+						} else {
+							switch(key) {
+								case "select": case "order":
+									arguments[key] = "#arguments[key]#, #variables.wheels.class.defaultScope[key]#";
+									break;
+								case "where":
+									arguments[key] = "#arguments[key]# AND #variables.wheels.class.defaultScope[key]#";
+							}
+						}
 					}
 				}
 			}
