@@ -26,6 +26,9 @@
 									break;
 								case "where":
 									arguments[key] = "#arguments[key]# AND #variables.wheels.class.defaultScope[key]#";
+									break;
+								default:
+									arguments[key] = variables.wheels.class.defaultScope[key];
 							}
 						}
 					}
