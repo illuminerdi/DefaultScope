@@ -12,6 +12,11 @@
 			var findAllOriginal = core.findAll; // this is to avoid a bug in CF8 where a method called as part of a struct will throw an error when passed an argument collection.
 			var key = "";
 			if(not structKeyExists(arguments, "exclusive")) arguments.exclusive = false;
+			// Note: we could use a less similar/ambiguous key name such as `stack` or `stackArguments`... thinking out loud..
+			if(not structKeyExists(arguments, "inclusive")) arguments.inclusive = false;
+			if(arguments.exclusive && arguments.inclusive)
+				$throw(type="Wheels.invalidFormat"
+					, message="Both arguments `exclusive` and `inclusive` are mutually exclusive. Both cannot be true in the same request.");
 			// loop over the default arguments
 			if (StructKeyExists(variables.wheels.class,"defaultScope") && not arguments.exclusive) {
 				for(key in variables.wheels.class.defaultScope) {
@@ -19,7 +24,10 @@
 					if($IsValidFindAllArgument(key)) {
 						if (not StructKeyExists(arguments,key)) {
 							arguments[key] = variables.wheels.class.defaultScope[key];
-						} else {
+						}
+						// Don't use the new stack mode unless we use the `inclusive` argument
+						// This should help keep backward compatilbility
+						else if (arguments.inclusive) {
 							switch(key) {
 								case "select": case "order":
 									arguments[key] = "#arguments[key]#, #variables.wheels.class.defaultScope[key]#";
@@ -32,6 +40,10 @@
 					}
 				}
 			}
+			//Cleanup before passing our arguments to Wheels, to be on the safe side...
+			StructDelete(arguments, "exclusive");
+			StructDelete(arguments, "inclusive");
+
 			return findAllOriginal(argumentCollection=arguments);
 		</cfscript>
 	</cffunction>
