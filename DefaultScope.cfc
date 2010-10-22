@@ -13,7 +13,7 @@
 			var key = "";
 			if(not structKeyExists(arguments, "exclusive")) arguments.exclusive = false;
 			// loop over the default arguments
-			if (StructKeyExists(variables.wheels.class,"defaultScope") and not arguments.exclusive) {
+			if (StructKeyExists(variables.wheels.class,"defaultScope") && not arguments.exclusive) {
 				for(key in variables.wheels.class.defaultScope) {
 					// if not present in the arguments, copy the default value
 					if($IsValidFindAllArgument(key)) {
@@ -25,7 +25,7 @@
 									arguments[key] = "#arguments[key]#, #variables.wheels.class.defaultScope[key]#";
 									break;
 								case "where":
-									arguments[key] = "#arguments[key]# AND #variables.wheels.class.defaultScope[key]#";
+									arguments[key] = "(#arguments[key]#) AND (#variables.wheels.class.defaultScope[key]#)";
 									break;
 							}
 						}
